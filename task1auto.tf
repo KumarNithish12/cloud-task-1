@@ -48,6 +48,12 @@ resource "aws_s3_bucket" "mybuck1234123" {
   }
 }
 
+resource "aws_s3_bucket_object" "s3object" {
+  bucket = "${aws_s3_bucket.mybuck1234123.id}"
+  key    = "Hybrid.jpg"
+  source = "/home/nithish/Downloads/Hybrid.jpg"
+}
+
 resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
   comment = "This is origin access identity"
 }
